@@ -1,0 +1,11 @@
+fun main(args: Array<String>) {
+    println("Enter a number")
+    var number : String? = readLine()
+    if (number.isNullOrEmpty()) {
+        println("The entered string is null")
+    } else {
+        number = number.toInt()
+        squared = number * number
+        println("The square of the $number is $squared")
+    }
+}

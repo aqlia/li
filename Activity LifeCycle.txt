@@ -1,0 +1,74 @@
+package com.example.lifecycle
+
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        showToast("onCreate called")
+        
+        setContent {
+            LifecycleDemoScreen()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showToast("onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showToast("onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        showToast("onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        showToast("onStop called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        showToast("onRestart called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        showToast("onDestroy called")
+    }
+
+    // Function to display a Toast message
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+}
+
+@Composable
+fun LifecycleDemoScreen() {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = "Activity Lifecycle Demo",
+            style = MaterialTheme.typography.headlineLarge
+        )
+    }
+}

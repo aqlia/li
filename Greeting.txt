@@ -1,0 +1,12 @@
+fun greet(name: String?, greeting: String?) {
+    if (name != null && greeting != null) println("$greeting, $name")
+    else println("Hello, $name")
+}
+
+fun main(args: Array<String>) {
+    println("Enter your name")
+    var name : String? = readLine()
+    println("Enter your greeting")
+    var greeting : String? = readLine()
+    greet(name, greeting)
+}
